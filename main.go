@@ -38,7 +38,7 @@ func main() {
 
 	route := gin.Default()
 
-	route.POST("post", func(c *gin.Context) {
+	route.POST("/post", func(c *gin.Context) {
 		events, err := bot.ParseRequest(c)
 		if err != nil {
 			fmt.Println(err)
