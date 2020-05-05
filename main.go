@@ -55,23 +55,34 @@ func main() {
 					if goodtext {
 						postbeebotte(text_d, beebottetoken)
 					}
-					replytext := fmt.Sprintf("Hello")
 					switch text_d {
 						case "lighton":
 							replytext := fmt.Sprintf("Light ON")
-						case "lightoff":
-							replytext := fmt.Sprintf("Light OFF")
-						case "aircon_on":
-							replytext := fmt.Sprintf("Aircon ON")
-						case "aircon_off":
-							replytext := fmt.Sprintf("Aircon OFF")
-						default:
-							replytext := fmt.Sprintf("That command is not found")
-						}
-
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
+							if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
 						fmt.Println(err)
 					}
+						case "lightoff":
+							replytext := fmt.Sprintf("Light OFF")
+							if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
+						fmt.Println(err)
+					}
+						case "aircon_on":
+							replytext := fmt.Sprintf("Aircon ON")
+							if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
+						fmt.Println(err)
+					}
+						case "aircon_off":
+							replytext := fmt.Sprintf("Aircon OFF")
+							if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
+						fmt.Println(err)
+					}
+						default:
+							replytext := fmt.Sprintf("That command is not found")
+							if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
+						fmt.Println(err)
+					}
+						}
+
 				}
 			}
 		}
