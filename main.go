@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"os"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 	"github.com/gin-gonic/gin"
@@ -39,7 +38,7 @@ func main() {
 	route := gin.Default()
 
 	route.POST("/post", func(c *gin.Context) {
-		events, err := bot.ParseRequest(c)
+		events, err := bot.ParseRequest(c.Request)
 		if err != nil {
 			fmt.Println(err)
 			return
@@ -47,7 +46,7 @@ func main() {
 
 		for _, event := range events {
 			if event.Type == linebot.EventTypeMessage{
-				message := event.Message.(type)
+				message := event.Message.(string)
 				if message == *linebot.TextMessage {
 					text_d := message.Text
 					goodtext := inarray(matchtext, text_d)
@@ -83,7 +82,7 @@ func main() {
 
 }
 
-func inarray(lis []string, text string) bool{
+func inarray(lis [4]string, text string) bool{
 	for _, value := range lis {
 		if value == text {
 			return true
