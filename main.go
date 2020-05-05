@@ -47,7 +47,7 @@ func main() {
 
 		for _, event := range events {
 			if event.Type == linebot.EventTypeMessage{
-				message := event.Message.(string)
+				message := event.Message.(text)
 				if message == *linebot.TextMessage {
 					text_d := message.Text
 					goodtext := inarray(matchtext, text_d)
