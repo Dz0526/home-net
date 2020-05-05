@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 	"github.com/gin-gonic/gin"
@@ -56,16 +57,17 @@ func main() {
 					}
 					switch text_d {
 						case "lighton":
-							replytext := "Light ON"
+							replytext := fmt.Sprintf("Light ON")
 						case "lightoff":
-							replytext := "Light OFF"
+							replytext := fmt.Sprintf("Light OFF")
 						case "aircon_on":
-							replytext := "Aircon ON"
+							replytext := fmt.Sprintf("Aircon ON")
 						case "aircon_off":
-							replytext := "Aircon OFF"
+							replytext := fmt.Sprintf("Aircon OFF")
 						default:
-							replytext := "That command is not found"
-					}
+							replytext := fmt.Sprintf("That command is not found")
+						}
+
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(replytext)).Do(); err != nil {
 						fmt.Println(err)
 					}
