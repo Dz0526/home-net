@@ -55,6 +55,7 @@ func main() {
 					if goodtext {
 						postbeebotte(text_d, beebottetoken)
 					}
+					replytext := fmt.Sprintf("Hello")
 					switch text_d {
 						case "lighton":
 							replytext := fmt.Sprintf("Light ON")
